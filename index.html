@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="https://kit.fontawesome.com/af99242fe5.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Job Listings</title>
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <nav class="top-bar">
+    <img src="./images/bg-header-desktop.svg" alt="header">
+    <div class="filter-bar">
+        <div class="filter-bar-item">
+            <div class="items">
+                <!-- Filter Tags Go Here -->
+            </div>
+            <div class="clear">
+                <button class="clear-button">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+  </nav>
+  
+  <div id="job-listings" class="job-listings">
+      <!-- Job Listings Go Here -->
+  </div>
+  <div class="add">
+    <button class="add-button" id="add-button">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+  <div id="myModal-desc" class="desc-modal">
+      <div class="modal-content2">
+        <span class="close">&times;</span>
+        <div class="job">
+            <div class="logo">
+                <img class="job-logo" src="" alt="logo">
+            </div>
+            <div class="job-info">
+                <h3 class="job-company"></h3>
+                <h2 class="job-heading"></h2>
+                <div class="row">
+                    <div class="row">
+                        <h4>Role:</h4>
+                        <p class="job-role"></p>
+                    </div>
+                    <div class="row">
+                        <h4>Level:</h4>
+                        <p class="job-level"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="vertical-line2"></div>
+        <div class="descs">
+            <h4>Description:</h4>
+            <p class="job-description"></p>
+        </div>
+        <div class="more">
+            <ul class="more-details"></ul>
+        </div>
+      </div>
+  </div>
+  <div id="myModal" class="modal">
+      <div class="modal-content">
+      <span class="close">&times;</span>
+          <h2>New Job Listing</h2>
+          <form id="jobSearchForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="company">Company:</label>
+                    <input type="text" id="company" name="company">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="position">Position:</label>
+                    <input type="text" id="position" name="position">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group2">
+                    <label for="attachment">Attachment:</label>
+                    <input type="file" id="attachment" name="attachment" accept="image/*">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group2">
+                    <label for="featured">Featured:</label>
+                    <input type="checkbox" id="featured" name="featured">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <select id="role" name="role" required>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                        <option value="Fullstack">Fullstack</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="level">Level:</label>
+                    <select id="level" name="level" required>
+                        <option value="Junior">Junior</option>
+                        <option value="Midweight">Midweight</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contract">Contract Type:</label>
+                    <select id="contract" name="contract">
+                        <option value="Full Time">Full Time</option>
+                        <option value="Part Time">Part Time</option>
+                        <option value="Contract">Contract</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <select id="location" name="location">
+                        <option value="USA Only">USA Only</option>
+                        <option value="UK Only">UK Only</option>
+                        <option value="Worldwide">Worldwide</option>
+                        <option value="Remote">Remote</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Languages:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="python" name="languages[]" value="Python">
+                        <label for="python">Python</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="ruby" name="languages[]" value="Ruby">
+                        <label for="ruby">Ruby</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="javascript" name="languages[]" value="JavaScript">
+                        <label for="javascript">JavaScript</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="html" name="languages[]" value="HTML">
+                        <label for="html">HTML</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="css" name="languages[]" value="CSS">
+                        <label for="css">CSS</label>
+                    </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <label>Tools:</label>
+                  <div class="checkbox-group">
+                      <div class="checkbox-item">
+                          <input type="checkbox" id="react" name="tools[]" value="React">
+                          <label for="react">React</label>
+                      </div>
+                      <div class="checkbox-item">
+                          <input type="checkbox" id="sass" name="tools[]" value="Sass">
+                          <label for="sass">Sass</label>
+                      </div>
+                      <div class="checkbox-item">
+                          <input type="checkbox" id="vue" name="tools[]" value="Vue">
+                          <label for="vue">Vue</label>
+                      </div>
+                      <div class="checkbox-item">
+                          <input type="checkbox" id="django" name="tools[]" value="Django">
+                          <label for="django">Django</label>
+                      </div>
+                      <div class="checkbox-item">
+                          <input type="checkbox" id="ror" name="tools[]" value="RoR">
+                          <label for="ror">RoR</label>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            
+
+            <button type="submit" id="submitButton">Add Job Listing</button>
+          </form>
+
+      </div>
+  </div>
+  <script src="./JQuery.js"></script>
+</body>
+</html>
